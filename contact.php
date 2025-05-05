@@ -1,0 +1,42 @@
+<?php session_start(); ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - UHMS</title>
+    <link rel="stylesheet" href="common.css">
+</head>
+<body>
+    <header>
+        <h1>Contact Us</h1>
+    </header>
+
+    <section class="contact-form">
+        <h2>Get in Touch</h2>
+
+        <?php if (isset($_GET['success'])): ?>
+            <p class="success">Message sent successfully!</p>
+        <?php elseif (isset($_GET['error'])): ?>
+            <p class="error">Something went wrong. Please try again.</p>
+        <?php endif; ?>
+
+        <form action="submit-contact.php" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 ULAB Hostel Management System</p>
+    </footer>
+</body>
+</html>
